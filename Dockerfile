@@ -7,7 +7,8 @@ ENV LC_ALL en_US.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /root
 
-RUN apt-get -y install software-properties-common;\
+RUN apt-get update;\
+    apt-get -y install software-properties-common;\
     apt-add-repository ppa:brightbox/ruby-ng;\
     apt-add-repository ppa:chris-lea/node.js;\
     echo "deb http://archive.ubuntu.com/ubuntu/ trusty main universe" > /etc/apt/sources.list;\
