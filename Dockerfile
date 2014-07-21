@@ -25,7 +25,7 @@ build-essential \
 curl \
 gifsicle \
 git \
-imagemagick\
+imagemagick \
 jhead \
 jpegoptim \
 libffi-dev \
