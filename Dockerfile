@@ -37,6 +37,7 @@ libmysql++-dev \
 libmysqlclient-dev \
 libncurses5-dev \
 libpq-dev \
+libqtwebkit-dev \
 libreadline-dev \
 libssl-dev \
 libyaml-dev \
