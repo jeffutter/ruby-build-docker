@@ -1,4 +1,4 @@
-FROM jpetazzo/dind
+FROM ubuntu:14.04
 MAINTAINER Jeffery Utter "jeff@jeffutter.com"
 
 ENV LANG en_US.UTF-8
