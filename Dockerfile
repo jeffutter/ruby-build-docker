@@ -57,8 +57,8 @@ trimage \
 zlib1g-dev
 
 RUN wget "http://downloads.sourceforge.net/project/wkhtmltopdf/0.12.2-dev/wkhtmltox-0.12.2-6a13a51_linux-trusty-amd64.deb" ;\
-    dpkg -i "wkhtmltox-0.12.1_linux-trusty-amd64.deb" ;\
-    rm " wkhtmltox-0.12.1_linux-trusty-amd64.deb"
+    dpkg -i "wkhtmltox-0.12.2-6a13a51_linux-trusty-amd64.deb" ;\
+    rm "wkhtmltox-0.12.2-6a13a51_linux-trusty-amd64.deb"
 
 RUN echo 'gem: --no-rdoc --no-ri' >> /.gemrc
 
