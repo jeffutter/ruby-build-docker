@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /root
 
 RUN apt-get update;\
-    apt-get -y install software-properties-common;\
+    apt-get -y install software-properties-common wget;\
     apt-add-repository ppa:brightbox/ruby-ng;\
     apt-add-repository ppa:chris-lea/node.js;\
     echo "deb http://archive.ubuntu.com/ubuntu/ trusty main universe" > /etc/apt/sources.list;\
@@ -55,6 +55,10 @@ ruby2.1-dev \
 supervisor \
 trimage \
 zlib1g-dev
+
+RUN wget "http://downloads.sourceforge.net/project/wkhtmltopdf/0.12.2-dev/wkhtmltox-0.12.2-6a13a51_linux-trusty-amd64.deb" ;\
+    dpkg -i "wkhtmltox-0.12.1_linux-trusty-amd64.deb" ;\
+    rm " wkhtmltox-0.12.1_linux-trusty-amd64.deb"
 
 RUN echo 'gem: --no-rdoc --no-ri' >> /.gemrc
 
