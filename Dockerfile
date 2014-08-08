@@ -24,6 +24,7 @@ RUN apt-get -y install \
 advancecomp \
 build-essential \
 curl \
+g++ \
 gifsicle \
 git \
 imagemagick \
@@ -32,18 +33,32 @@ jpegoptim \
 libffi-dev \
 libgdbm-dev \
 libjpeg-turbo-progs \
+libmysql++-dev \
+libmysqlclient-dev \
 libncurses5-dev \
+libpq-dev \
+libqtwebkit-dev \
 libreadline-dev \
 libssl-dev \
 libyaml-dev \
+libxml2-dev \
+libxslt-dev \
+make \
 nodejs \
+nginx \
+openssl \
 optipng \
+pdftk \
 pngcrush \
 ruby2.1 \
-ruby2.1-dev \ 
+ruby2.1-dev \
+supervisor \
 trimage \
 zlib1g-dev
 
-RUN echo 'gem: --no-rdoc --no-ri' >> /.gemrc
+RUN wget "http://downloads.sourceforge.net/project/wkhtmltopdf/0.12.2-dev/wkhtmltox-0.12.2-6a13a51_linux-trusty-amd64.deb" ;\
+    dpkg -i "wkhtmltox-0.12.2-6a13a51_linux-trusty-amd64.deb" ;\
+    rm "wkhtmltox-0.12.2-6a13a51_linux-trusty-amd64.deb"
 
-RUN gem install bundler
+RUN echo 'gem: --no-rdoc --no-ri' >> /.gemrc ;\
+    gem install bundler foreman
