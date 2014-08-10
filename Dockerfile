@@ -54,6 +54,7 @@ ruby2.1 \
 ruby2.1-dev \
 supervisor \
 trimage \
+wget \
 zlib1g-dev
 
 RUN wget "http://downloads.sourceforge.net/project/wkhtmltopdf/0.12.2-dev/wkhtmltox-0.12.2-6a13a51_linux-trusty-amd64.deb" ;\
