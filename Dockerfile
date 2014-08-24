@@ -49,6 +49,7 @@ nginx \
 openssl \
 optipng \
 pdftk \
+phantomjs \
 pngcrush \
 ruby2.1 \
 ruby2.1-dev \
