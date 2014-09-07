@@ -11,6 +11,13 @@ RUN locale-gen en_US.UTF-8 ;\
     echo 'LANG="en_US.UTF-8"' > /etc/default/locale ;\
     dpkg-reconfigure locales
 
+RUN adduser --disabled-login --gecos 'Deploy' deploy ;\
+    mkdir -p /home/deploy/sockets /home/deploy/bundle /home/deploy/app
+
+ENV HOME /home/deploy
+ENV BUNDLE_PATH /home/deploy/bundle
+WORKDIR /home/deploy/app
+
 RUN apt-get update ;\
     apt-get -y install software-properties-common ;\
     apt-add-repository ppa:brightbox/ruby-ng ;\
@@ -56,7 +63,6 @@ supervisor \
 trimage \
 wget \
 zlib1g-dev
-
 
 RUN echo 'gem: --no-rdoc --no-ri' >> /.gemrc ;\
     gem install bundler foreman
