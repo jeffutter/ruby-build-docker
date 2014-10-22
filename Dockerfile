@@ -18,10 +18,8 @@ WORKDIR /home/deploy/app
 RUN DEBIAN_FRONTEND=noninteractive apt-get update ;\
     apt-get -y install curl software-properties-common ;\
     apt-add-repository ppa:brightbox/ruby-ng ;\
-    echo "deb http://archive.ubuntu.com/ubuntu/ trusty main universe" > /etc/apt/sources.list ;\
-    echo "deb http://archive.ubuntu.com/ubuntu/ trusty-security main universe " >> /etc/apt/sources.list ;\
-    echo "deb http://archive.ubuntu.com/ubuntu/ trusty-updates main universe" >> /etc/apt/sources.list ;\
-    curl -sL https://deb.nodesource.com/setup | sudo bash -
+    curl -sL https://deb.nodesource.com/setup | sudo bash - ;\
+    rm -rf /var/lib/apt/lists/* 
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
   advancecomp \
