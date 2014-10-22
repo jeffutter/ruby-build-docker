@@ -21,7 +21,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update ;\
     curl -sL https://deb.nodesource.com/setup | sudo bash - ;\
     rm -rf /var/lib/apt/lists/* 
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update ;\
+  DEBIAN_FRONTEND=noninteractive apt-get install -y \
   advancecomp \
   build-essential \
   curl \
