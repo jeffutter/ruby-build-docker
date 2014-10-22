@@ -55,8 +55,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update ;\
   ruby2.1-dev \
   wget \
   zlib1g-dev \
-  libcurl4-openssl-dev \ # Passenger
-  libpcre3-dev \         # Passenger
+  libcurl4-openssl-dev \
+  libpcre3-dev \ 
   && rm -rf /var/lib/apt/lists/*
 
 RUN echo 'gem: --no-rdoc --no-ri' >> /home/deploy/.gemrc ;\
