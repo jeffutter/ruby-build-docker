@@ -55,6 +55,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update ;\
   ruby2.1-dev \
   wget \
   zlib1g-dev \
+# Webkit deps for capybara-webkit
+  libqtwebkit-dev \
+  libqt5webkit5-dev \
 # Passenger
   libcurl4-openssl-dev \
   libpcre3-dev \ 
