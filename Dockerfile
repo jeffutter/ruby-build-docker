@@ -51,8 +51,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update ;\
   pdftk \
   phantomjs \
   pngcrush \
-  ruby2.1 \
-  ruby2.1-dev \
+  ruby2.2 \
+  ruby2.2-dev \
   wget \
   zlib1g-dev \
 # Webkit deps for capybara-webkit
