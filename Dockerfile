@@ -56,6 +56,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update ;\
   wget \
   zlib1g-dev \
 # Webkit deps for capybara-webkit
+  qt5-default \
   libqtwebkit-dev \
   libqt5webkit5-dev \
 # Drone
