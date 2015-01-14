@@ -57,6 +57,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update ;\
   zlib1g-dev \
 # Webkit deps for capybara-webkit
   xvfb \
+  dbus-1-dbg \
   qt5-default \
   libqtwebkit-dev \
   libqt5webkit5-dev \
@@ -65,7 +66,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update ;\
 # Passenger
   libcurl4-openssl-dev \
   libpcre3-dev \ 
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/* \
+  && dbus-uuidgen > /var/lib/dbus/machine-id
 
 RUN echo 'gem: --no-rdoc --no-ri' >> /home/deploy/.gemrc ;\
     chown deploy:deploy /home/deploy/.gemrc ;\
