@@ -58,6 +58,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update ;\
 # Webkit deps for capybara-webkit
   libqtwebkit-dev \
   libqt5webkit5-dev \
+# Drone
+  socat \
 # Passenger
   libcurl4-openssl-dev \
   libpcre3-dev \ 
