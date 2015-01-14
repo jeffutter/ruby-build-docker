@@ -67,7 +67,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update ;\
   libcurl4-openssl-dev \
   libpcre3-dev \ 
   && rm -rf /var/lib/apt/lists/* \
-  && dbus-uuidgen > /var/lib/dbus/machine-id
+  && dbus-uuidgen > /etc/machine-id
 
 RUN echo 'gem: --no-rdoc --no-ri' >> /home/deploy/.gemrc ;\
     chown deploy:deploy /home/deploy/.gemrc ;\
