@@ -18,7 +18,6 @@ WORKDIR /home/deploy/app
 RUN DEBIAN_FRONTEND=noninteractive apt-get update ;\
     apt-get -y install curl software-properties-common ;\
     apt-add-repository ppa:brightbox/ruby-ng ;\
-    curl -sL https://deb.nodesource.com/setup | sudo bash - ;\
     rm -rf /var/lib/apt/lists/* 
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update ;\
@@ -44,7 +43,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update ;\
   libxml2-dev \
   libxslt-dev \
   make \
-  nodejs \
   nginx \
   openssl \
   optipng \
@@ -68,6 +66,16 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update ;\
   libpcre3-dev \ 
   && rm -rf /var/lib/apt/lists/* \
   && dbus-uuidgen > /etc/machine-id
+
+RUN gpg --keyserver pool.sks-keyservers.net --recv-keys 9554F04D7259F04124DE6B476D5A82AC7E37093B DD8F2338BAE7501E3DD5AC78C273792F7D83545D
+ENV IOJS_VERSION 1.2.0
+
+RUN curl -SLO "https://iojs.org/dist/v$IOJS_VERSION/iojs-v$IOJS_VERSION-linux-x64.tar.gz" \
+  && curl -SLO "https://iojs.org/dist/v$IOJS_VERSION/SHASUMS256.txt.asc" \
+  && gpg --verify SHASUMS256.txt.asc \
+  && grep " iojs-v$IOJS_VERSION-linux-x64.tar.gz\$" SHASUMS256.txt.asc | sha256sum -c - \
+  && tar -xzf "iojs-v$IOJS_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
+  && rm "iojs-v$IOJS_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc
 
 RUN echo 'gem: --no-rdoc --no-ri' >> /home/deploy/.gemrc ;\
     chown deploy:deploy /home/deploy/.gemrc ;\
